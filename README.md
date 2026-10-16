@@ -1,65 +1,94 @@
-# Tata Motors Financial Analysis – Power BI Dashboard
-An interactive Power BI report that analyzes the financial performance of **Tata Motors**. It turns annual profit and loss and balance sheet data into KPI cards, trend charts, composition charts and a decomposition tree, so growth, profitability and balance sheet strength can be understood at a glance.
+# Tata Motors Financial Analysis Dashboard | Power BI
+This project explores Tata Motors' financial performance using Power BI. It brings together annual financial statements, quarterly results, and balance sheet data to understand how the company's revenue, profitability, investments, and borrowings have changed over time.
+The report includes interactive charts, KPI cards, financial tables, and a decomposition tree to make the data easier to explore and understand.
 
-📄 **[Read the full project report (PDF)](TATA_Motors_Analysis_Report.pdf)**
-![Overview Dashboard](images/page1-dashboard.png)
----
-## Key Features
-- 5-page Power BI report: overview dashboard, data tables, margin analysis, loan-grade chart and decomposition tree
-- KPI cards, gauge and combo (column + line) charts for Reserves, Investments and Equity Capital
-- Donut, pie and treemap charts for asset composition
-- Year slicer for interactive filtering
-- Decomposition tree for drill-down analysis
-- Custom DAX calculated column and measures for profit margin
+## Dashboard Preview
+[View the Overview Dashboard](https://github.com/nitinnayan01-creator/tata-motors-financial-analysis-powerbi/blob/main/images/page1-dashboard.png)
+[View the Full Project Report (PDF)](https://github.com/nitinnayan01-creator/tata-motors-financial-analysis-powerbi/blob/main/TATA_Motors_Analysis_Report%281%29.pdf)
+
+## Project Overview
+The report is designed to answer a few important questions:
+- How has Tata Motors' revenue changed over the years?
+- How has the company recovered from periods of losses?
+- What do profit margins tell us about its financial performance?
+- How have investments, reserves, and borrowings changed?
+- What does the balance sheet indicate about the company's financial position?
+
+## Dashboard Features
+- **Financial overview:** KPI cards and charts summarizing key financial figures.
+- **Trend analysis:** Year-wise comparisons of sales, profit, reserves, investments, and equity capital.
+- **Profitability analysis:** Profit margin calculations using DAX.
+- **Balance sheet analysis:** Visual breakdowns of assets and other financial components.
+- **Interactive year filter:** Select a year to explore the available financial data.
+- **Decomposition tree:** Drill down into financial figures to understand their contributing factors.
+- **Additional analysis:** Quarterly results and a loan-grade visualization included in the report.
 
 ## Report Pages
-| Page | Content |
-|------|---------|
-| Page 1 | Main dashboard with combo charts, KPI cards, gauge, donut, pie, treemap, line chart and Year slicer |
-| Page 2 | Quarterly results table (Sep 2024, Jun 2025, Sep 2025) |
-| Page 3 | Profit margin table and notes on calculated column vs measure |
-| Page 4 | Loan amount by loan grade (credit-risk dataset) |
-| Page 5 | Decomposition tree |
+| Page | Description |
+|---|---|
+| 1. Overview | KPI cards, financial trends, composition charts, and year slicer |
+| 2. Quarterly Results | Comparison of selected quarterly financial results |
+| 3. Profit Margin | Profit margin calculations and supporting notes |
+| 4. Loan Grade Analysis | Loan amount grouped by loan grade |
+| 5. Decomposition Tree | Interactive drill-down analysis |
 
 ## Data Model
-| Table | Description |
-|-------|-------------|
-| `final` | Annual profit and loss, Mar 2014 to Mar 2025, plus TTM |
-| `Table 8` | Annual balance sheet, Mar 2014 to Mar 2025 |
-| `Table 2` | Quarterly results |
-| `creditriskdata` | Loan applicant sample (30 rows) |
+The report contains the following tables:
+| Table | Purpose |
+|---|---|
+| `final` | Annual profit and loss data from March 2014 to March 2025, including TTM data |
+| `Table 8` | Annual balance sheet data |
+| `Table 2` | Quarterly financial results |
+| `creditriskdata` | Sample credit-risk data used for the loan-grade analysis |
 
-## DAX Used
-**Calculated column**
-Rowmargincoloumn = DIVIDE('final'[Net Profit +], 'final'[Sales +])
-**Measures**
-Total Profit = SUM(Income_Source[Profit_for_the_year_EUR_m])
-Total Sales = SUM(Income_Source[Revenues_EUR_m])
-RowProfitMargin = DIVIDE([Total Profit], [Total Sales])
-A **calculated column** is computed row by row and stored in the model. A **measure** is evaluated at query time and responds to slicers and filters.
+## DAX Calculations
+### Calculated Column
+Rowmargincoloumn =
+DIVIDE(
+    'final'[Net Profit +],
+    'final'[Sales +]
+)
+### Profit Margin Measure
+Total Profit =
+SUM('final'[Net Profit +])
+Total Sales =
+SUM('final'[Sales +])
+RowProfitMargin =
+DIVIDE(
+    [Total Profit],
+    [Total Sales]
+)
+The calculated column stores a result for each row, whereas a measure calculates its result according to the current filter context, including the selected year.
 
-## Key Insights
-- **Strong growth:** sales grew from Rs. 232,834 crore (FY2014) to Rs. 439,695 crore (FY2025), about **5.9% a year**.
-- **Profit recovery:** after losses from FY2019 to FY2022, net profit returned to Rs. 31,807 crore in FY2024 and Rs. 28,149 crore in FY2025.
-- **Stable operating margin:** 13% in FY2024 and FY2025, up from 7% to 9% in the weaker years.
-- **Lower interest burden:** interest cost fell from Rs. 10,225 crore (FY2023) to Rs. 5,083 crore (FY2025).
-- **Leverage:** borrowings to net worth improved to 0.66x in FY2022 and stood at 1.04x in FY2025.
-- **Capacity investment:** capital work in progress grew from Rs. 22,046 crore (FY2022) to Rs. 41,622 crore (FY2025).
+## Key Financial Insights
+Based on the figures used in this analysis:
+- **Revenue growth:** Sales increased from ₹232,834 crore in FY2014 to ₹439,695 crore in FY2025.
+- **Profit recovery:** After reporting losses during FY2019–FY2022, Tata Motors recorded a net profit of ₹31,807 crore in FY2024 and ₹28,149 crore in FY2025.
+- **Operating margin:** The reported operating margin was approximately 13% in both FY2024 and FY2025.
+- **Interest costs:** Interest expenses declined from ₹10,225 crore in FY2023 to ₹5,083 crore in FY2025.
+- **Borrowings:** The borrowings-to-net-worth ratio was reported at 1.04x in FY2025.
+- **Capital investment:** Capital work in progress increased from ₹22,046 crore in FY2022 to ₹41,622 crore in FY2025.
+These observations describe the figures included in the project and should be checked against the original financial statements before being used in formal reporting.
 
 ## Tools Used
 - Microsoft Power BI Desktop
-- DAX
+- DAX (Data Analysis Expressions)
+- Power BI visualizations and interactive slicers
 
-## How to Open
-1. Download `TATA_Motors_Analysis.pbix` from this repository.
-2. Open it in **Power BI Desktop** (Windows). The `.pbix` file cannot be opened directly on GitHub.
+## How to Open the Project
+1. Open the repository on GitHub.
+2. Download `TATA_Motors_Analysis.pbix`.
+3. Open the downloaded file using Power BI Desktop on Windows.
+4. Explore the report pages and use the year slicer to filter the available data.
+The `.pbix` file is intended for use with Power BI Desktop. The dashboard image and PDF provide static previews for anyone who cannot open the report interactively.
 
 ## Repository Structure
 tata-motors-financial-analysis-powerbi/
 ├── TATA_Motors_Analysis.pbix
-├── TATA_Motors_Analysis_Report.pdf
+├── TATA_Motors_Analysis_Report(1).pdf
 ├── README.md
 └── images/
     └── page1-dashboard.png
+    
 ## Author
 **Nitin Nayan**

@@ -4,7 +4,8 @@ The report includes interactive charts, KPI cards, financial tables, and a decom
 
 ## Dashboard Preview
 [View the Overview Dashboard](https://github.com/nitinnayan01-creator/tata-motors-financial-analysis-powerbi/blob/main/images/page1-dashboard.png)
-[View the Full Project Report (PDF)](https://github.com/nitinnayan01-creator/tata-motors-financial-analysis-powerbi/blob/main/TATA_Motors_Analysis_Report%281%29.pdf)
+[View the Full Project Report (PDF)](https://github.com/nitinnayan01-creator/tata-motors-financial-analysis-powerbi/blob/main/TATA_Motors_Analysis_Report%20%281%29.pdf)
+
 
 ## Project Overview
 The report is designed to answer a few important questions:

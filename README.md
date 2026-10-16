@@ -3,7 +3,7 @@ This project explores Tata Motors' financial performance using Power BI. It brin
 The report includes interactive charts, KPI cards, financial tables, and a decomposition tree to make the data easier to explore and understand.
 
 ## Dashboard Preview
-[View the Overview Dashboard](https://github.com/nitinnayan01-creator/tata-motors-financial-analysis-powerbi/blob/main/images/dashboard.png)
+[View the Overview Dashboard](https://github.com/nitinnayan01-creator/tata-motors-financial-analysis-powerbi/blob/main/dashboard.png)
 [View the Full Project Report (PDF)](https://github.com/nitinnayan01-creator/tata-motors-financial-analysis-powerbi/blob/main/TATA_Motors_Analysis_Report%20%281%29.pdf)
 
 
@@ -85,11 +85,11 @@ The `.pbix` file is intended for use with Power BI Desktop. The dashboard image 
 
 ## Repository Structure
 tata-motors-financial-analysis-powerbi/
-├── TATA_Motors_Analysis.pbix
+├── Security
+|---MetaData
 ├── TATA_Motors_Analysis_Report(1).pdf
 ├── README.md
-└── images/
-    └── page1-dashboard.png
+└── dashboard.png
     
 ## Author
 **Nitin Nayan**
